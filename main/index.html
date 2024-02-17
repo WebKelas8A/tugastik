@@ -8,7 +8,7 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <title>Document</title>
+    <title>TUGAS TIK | KELOMPOK 1</title>
   </head>
   <body>
     <!-- Navigasi / Slide 1 -->
@@ -270,7 +270,7 @@
 
     <section class="profileSection">
       <div class="profileWrapper">
-        <div class="profileCard">
+        <div class="profileCard leftIn">
           <div class="profileInfo">
             <span class="star-rating">
               <i class="bx bxs-star"></i>
@@ -300,7 +300,7 @@
           </div>
         </div>
 
-        <div class="profileCard">
+        <div class="profileCard centerIn">
           <div class="profileInfo">
             <span class="star-rating">
               <i class="bx bxs-star"></i>
@@ -330,7 +330,7 @@
           </div>
         </div>
 
-        <div class="profileCard">
+        <div class="profileCard rightIn">
           <div class="profileInfo">
             <span class="star-rating">
               <i class="bx bxs-star"></i>
@@ -381,7 +381,54 @@
 
     <script src="https://unpkg.com/split-type"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- GSAP ANIMATION -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Scroll Trigger ( GSAP ) -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.35/dist/lenis.min.js"></script>
+    <!-- Smooth Scroll -->
     <script src="js/script.js"></script>
+    <script>
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".profileCard",
+          start: "-90% center",
+          end: "40% center",
+          scrub: true,
+          markers: false,
+        },
+      });
+
+      tl.to(".centerIn", {
+        y: -50,
+        duration: 5,
+        opacity: 1,
+      });
+
+      tl.to(".rightIn", {
+        x: -50,
+        duration: 5,
+        opacity: 1,
+      });
+
+      tl.to(".leftIn", {
+        x: 50,
+        duration: 5,
+        opacity: 1,
+      });
+
+      const lenis = new Lenis();
+
+      lenis.on("scroll", (e) => {
+        console.log(e);
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    </script>
     <!-- Slide 3 -->
   </body>
 </html>

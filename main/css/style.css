@@ -12,11 +12,11 @@
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  scroll-behavior: smooth;
 }
 body {
   background-color: var(--bg-color);
   height: 100%;
+  overflow-y: auto;
 }
 nav {
   display: flex;
@@ -278,13 +278,28 @@ nav .links .link:hover {
 }
 .profileSection .profileWrapper {
   place-self: center;
+  margin-left: 3%;
   display: flex;
+  margin-right: 2.5%;
 }
 .profileCard {
   border-radius: 5px;
   border: 1px solid var(--white);
-  margin-left: 20px;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+}
+.profileCard.centerIn {
+  bottom: -50px;
+  opacity: 0;
+}
+.profileCard.rightIn {
+  right: -50px;
+  opacity: 0;
+}
+.profileCard.leftIn {
+  left: -50px;
+  opacity: 0;
 }
 .profileInfo {
   border-top-left-radius: 5px;
@@ -383,7 +398,7 @@ nav .links .link:hover {
 
 /* other */
 .navbar.scrolled {
-  background-color: #D8D8D8;
+  background-color: #d8d8d8;
   color: black;
 }
 ::-webkit-scrollbar {
@@ -394,6 +409,32 @@ nav .links .link:hover {
   background-color: var(--red);
   border-radius: 99px;
 }
-button, a{
+button,
+a {
   cursor: pointer;
+}
+
+.spacer {
+  height: 100vh;
+}
+
+.animated-element {
+  width: 300px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #9400df;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  left: -400px;
+}
+.animated-element h2 {
+  margin: 0;
+  padding: 0;
+}
+.animated-element p {
+  font-size: 0.85em;
+  line-height: 1.4em;
+  margin-bottom: 0;
 }
